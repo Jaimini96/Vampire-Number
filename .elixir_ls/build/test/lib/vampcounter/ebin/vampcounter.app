@@ -1,0 +1,12 @@
+{application,vampcounter,
+             [{applications,[kernel,stdlib,elixir,logger,combination,
+                             gen_stage]},
+              {description,"vampcounter"},
+              {modules,['Elixir.Vampcounter','Elixir.Vampcounter.Application',
+                        'Elixir.Vampcounter.Consumer',
+                        'Elixir.Vampcounter.FangsCalculator',
+                        'Elixir.Vampcounter.Producer',
+                        'Elixir.Vampcounter.ProducerConsumer']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.Vampcounter.Application',[0,0]}}]}.
