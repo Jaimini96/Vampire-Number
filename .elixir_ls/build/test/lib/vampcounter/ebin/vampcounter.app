@@ -1,6 +1,5 @@
 {application,vampcounter,
-             [{applications,[kernel,stdlib,elixir,logger,combination,
-                             gen_stage]},
+             [{applications,[kernel,stdlib,elixir,logger,gen_stage]},
               {description,"vampcounter"},
               {modules,['Elixir.Vampcounter','Elixir.Vampcounter.Application',
                         'Elixir.Vampcounter.Consumer',

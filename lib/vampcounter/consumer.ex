@@ -32,7 +32,7 @@ defmodule Vampcounter.Consumer do
       end
       if event == getfinalevent() do
         :timer.sleep(3000)
-        #:init.stop
+        :init.stop
       end
     end
     {:noreply, [], state}

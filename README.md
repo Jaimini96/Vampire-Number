@@ -11,7 +11,8 @@ Apoorva Agarwal - 92586592
 
 1. Unzip the folder
 2. Go to root directory
-3. Run command "time mix run --no-halt proj1.exs 100000 200000". (Time will work in case of mac and not for windows.)
+3. Run "mix deps.get"
+4. Run command "time mix run --no-halt proj1.exs 100000 200000". (Time will work in case of mac and not for windows.)
 
 ## Workers
 
