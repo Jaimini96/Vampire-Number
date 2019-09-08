@@ -12,13 +12,14 @@ Apoorva Agarwal - 92586592
 1. Unzip the folder
 2. Go to root directory
 3. Run "mix deps.get"
-4. Run command "time mix run --no-halt proj1.exs 100000 200000". (Time will work in case of mac and not for windows.)
+3. Run command "time mix run --no-halt proj1.exs 100000 200000". (Time will work in case of mac and not for windows.)
 
 ## Workers
 
-1. We have ceated 8 workers to utilize 8 cores present on machine.
+1. We have ceated 8 workers(Consumers) to utilize 8 cores present on machine. We have One Producer to handle the demands. One Producer-Consumer to print the results and One supervisor to supervise them all.
 2. In each iteration, supervisor gives maximum range of 1000 to each worker. When a worker finishes up its range, supervisor allots it the next available range of 1000 numbers.
-3. We have used GenStage for the purpose of rataining state of demand for each worker.
+3. Our Workers (Consumers) do the computation and pass the result to common ProducerConsumer which prints the result.
+4. We have used GenStage for the purpose of rataining state of demand for each worker.
 
 ## Result of given problem
 
@@ -88,15 +89,15 @@ Compiling 1 file (.ex)
 193945 395 491
 197725 719 275
 
-real	1m12.229s
-user	8m3.040s
-sys	0m46.173s
+real	1m29.592s
+user	8m20.287s
+sys	  0m40.429s
 ```
 ## Time Analysis
 
-1. CPU time = user + sys = 529.2 seconds
-2. Real time = 72.23 seconds
-3. CPU/Real time ratio = 7.23 cores
+1. CPU time = user + sys = 540.2 seconds
+2. Real time = 90 seconds
+3. CPU/Real time ratio = 6 cores
 
 ## Biggest Numbers calculated
 
@@ -105,3 +106,21 @@ sys	0m46.173s
 ## Utilization Chart
 
 ![VAMPCOUNTER](image.png)
+
+## Installation
+
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+by adding `vampcounter` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:vampcounter, "~> 0.1.0"}
+  ]
+end
+```
+
+Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
+be found at [https://hexdocs.pm/vampcounter](https://hexdocs.pm/vampcounter).
+

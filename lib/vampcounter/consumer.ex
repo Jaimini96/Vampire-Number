@@ -20,14 +20,16 @@ defmodule Vampcounter.Consumer do
       #IO.inspect {self(), event, state}
       fangs = FangsCalculator.fangs(event)
 
+
       cond do
         fangs == [] -> nil
         fangs != [] ->
           #IO.inspect fangs, charlists: :as_lists
-          s = ["#{event}"]
-          t = Enum.map(fangs, fn(x) -> [" #{Enum.at(x,0)}"," #{Enum.at(x,1)}"] end)
+          GenServer.cast(Vampcounter.ProducerConsumer, {:print, {fangs, event}})
+          # s = ["#{event}"]
+          # t = Enum.map(fangs, fn(x) -> [" #{Enum.at(x,0)}"," #{Enum.at(x,1)}"] end)
 
-          IO.puts (s ++List.flatten(t))
+          # IO.puts (s ++List.flatten(t))
 
       end
       if event == getfinalevent() do
